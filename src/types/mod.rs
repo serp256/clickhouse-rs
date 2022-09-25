@@ -196,7 +196,8 @@ has_sql_type! {
     Date<Utc>: SqlType::Date,
     DateTime<Tz>: SqlType::DateTime(DateTimeType::DateTime32),
     DateTime<Utc>: SqlType::DateTime(DateTimeType::DateTime32),
-    std::net::Ipv4Addr: SqlType::Ipv4
+    std::net::Ipv4Addr: SqlType::Ipv4,
+    uuid::Uuid: SqlType::Uuid
 }
 
 

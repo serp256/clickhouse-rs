@@ -426,9 +426,18 @@ where
 }
 
 impl From<Ipv4Addr> for Value {
-	fn from(ip: Ipv4Addr) -> Self {
-		ip.octets().into()
-	}
+    fn from(ip: Ipv4Addr) -> Self {
+        let mut buf = ip.octets();
+        buf.reverse();
+        buf.into()
+    }
+}
+
+
+impl From<Ipv6Addr> for Value {
+    fn from(ip: Ipv6Addr) -> Self {
+        ip.octets().into()
+    }
 }
 
 value_from! {
