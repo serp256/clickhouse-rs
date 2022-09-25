@@ -425,6 +425,12 @@ where
     }
 }
 
+impl From<Ipv4Addr> for Value {
+	fn from(ip: Ipv4Addr) -> Self {
+		ip.octets().into()
+	}
+}
+
 value_from! {
     u8: UInt8,
     u16: UInt16,

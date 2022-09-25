@@ -193,7 +193,10 @@ has_sql_type! {
     f32: SqlType::Float32,
     f64: SqlType::Float64,
     Date<Tz>: SqlType::Date,
-    DateTime<Tz>: SqlType::DateTime(DateTimeType::DateTime32)
+    Date<Utc>: SqlType::Date,
+    DateTime<Tz>: SqlType::DateTime(DateTimeType::DateTime32),
+    DateTime<Utc>: SqlType::DateTime(DateTimeType::DateTime32),
+    std::net::Ipv4Addr: SqlType::Ipv4
 }
 
 
