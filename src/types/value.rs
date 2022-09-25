@@ -334,6 +334,12 @@ impl From<AppDate> for Value {
     }
 }
 
+impl From<Date<Utc>> for Value {
+    fn from(v: Date<Utc>) -> Value {
+        Value::Date(u16::get_days(v), Tz::UTC)
+    }
+}
+
 impl From<Enum8> for Value {
     fn from(v: Enum8) -> Value {
         Value::Enum8(Vec::new(), v)

@@ -8,7 +8,7 @@ pub trait DateConverter {
     fn get_stamp(source: Value) -> Self;
     fn date_type() -> SqlType;
 
-    fn get_days(date: Date<Tz>) -> u16 {
+    fn get_days(date: impl chrono::Datelike) -> u16 {
         const UNIX_EPOCH_DAY: i64 = 719_163;
         let gregorian_day = i64::from(date.num_days_from_ce());
         (gregorian_day - UNIX_EPOCH_DAY) as u16
